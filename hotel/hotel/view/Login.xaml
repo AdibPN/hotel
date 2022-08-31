@@ -4,8 +4,8 @@
              x:Class="hotel.view.Login">
     <ContentPage.Background>
         <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-            <GradientStop Color="#276320" Offset="0.1"/>
-            <GradientStop Color="#203e63" Offset="1.0"/>
+            <GradientStop Color="Blue" Offset="0.1"/>
+            <GradientStop Color="Purple" Offset="1.0"/>
         </LinearGradientBrush>
     </ContentPage.Background>
 
@@ -13,12 +13,12 @@
         <Frame CornerRadius="10" x:Name="frm_dados" VerticalOptions="CenterAndExpand" BackgroundColor="Transparent">
             <StackLayout>
                 
-                <Label Text="Login Usuario" TextColor="Black" HeightRequest="25" FontSize="Large"/>
-                <Label Text="Email:" TextColor="Black"/>
-                <Entry x:Name="User_email" TextColor="Black"/>
-                <Label Text="Senha:" TextColor="Black"/>
+                <Label Text="Login Usuario" TextColor="White" HeightRequest="30" FontSize="Large"/>
+                <Label Text="Email:" TextColor="White"/>
+                <Entry x:Name="User_email" TextColor="White"/>
+                <Label Text="Senha:" TextColor="White"/>
                 <Entry IsPassword="True" x:Name="user_pw"/>
-                <Button Text="Conectar" Clicked="Button_Clicked" TextColor="Black"/>
+                <Button Text="Conectar" Clicked="Button_Clicked" TextColor="White"/>
 
             </StackLayout>
         </Frame>
