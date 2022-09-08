@@ -13,28 +13,52 @@ namespace hotel
     public partial class App : Application
     {
 
+        public List<DadosUsuario> list_usuarios = new List<DadosUsuario>
+        {
+            new DadosUsuario()
+            {
+                Email = "aluno@etec",
+                Nome = "Aluno",
+                Senha = "123"
+            },
+            new DadosUsuario()
+            {
+                Email = "prof@etec",
+                Nome = "Professor",
+                Senha = "456"
+            }
+        };
+
         //public List<DadosUsuario> list_usuario = new List<DadosUsuario>
         public List<model.CategoriaQuarto> tipos_quartos = new List<model.CategoriaQuarto>()
         {
             new model.CategoriaQuarto()
             {
                 Descricao = "SUÍTE FODA",
-                ValorDiarioAdulto = 100.0,
-                ValorDiarioCrianca = 50.0
+                ValorDiariaAdulto = 100.0,
+                ValorDiariaCrianca = 50.0
             },
 
             new model.CategoriaQuarto()
             {
                 Descricao = "SUÍTE 'MAI O MENOS'",
-                ValorDiarioAdulto = 80.0,
-                ValorDiarioCrianca = 40.0
+                ValorDiariaAdulto = 80.0,
+                ValorDiariaCrianca = 40.0
             },
 
             new model.CategoriaQuarto()
             {
                 Descricao = "SUÍTE HUMILDE",
-                ValorDiarioAdulto = 60.0,
-                ValorDiarioCrianca = 30.0
+                ValorDiariaAdulto = 60.0,
+                ValorDiariaCrianca = 30.0
+
+            },
+
+            new model.CategoriaQuarto()
+            {
+                Descricao = "SUÍTE INFLACIONARIA",
+                ValorDiariaAdulto = 50.0,
+                ValorDiariaCrianca = 25.0
 
             }
 
@@ -44,12 +68,23 @@ namespace hotel
         {
             InitializeComponent();
             Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-BR");
-            MainPage = new NavigationPage(new view.Protegida());
+            if (Properties.ContainsKey("usuario_logado"))
+                MainPage = new NavigationPage(new view.HospedagemCalculada());
+            else
+                MainPage = new NavigationPage(new view.Login());
         }
 
         protected override void OnStart()
         {
 
+        }
+
+        protected override void OnSleep()
+        {
+        }
+
+        protected override void OnResume()
+        {
         }
 
     }

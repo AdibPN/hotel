@@ -1,17 +1,44 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿
+    ,<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
              x:Class="hotel.App">
+    
     <Application.Resources>
         <ResourceDictionary>
-            <Style TargetType="Button">
-                <Setter Property="HorizontalOptions" Value="Center"/>
-                <Setter Property="BackgroundColor" Value="Transparent"/>
-                <Setter Property="TextColor" Value="White"/>
-                <Setter Property="Padding" Value="5"/>
-                <Setter Property="BorderColor" Value="White"/>
-                <Setter Property="BorderWidth" Value="1"/>
-                <Setter Property="CornerRadius" Value="10"/>
+            <Style x:Key="LabelsCAmpos" TargetType="Label">
+
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="HorizontalTextAlignment" Value="End"/>
+                <Setter Property="Margin" Value="0, 0, 5, 0"/>
+                <Setter Property="FontSize" Value="Medium"/>
+
+            </Style>
+
+            <Style x:Key="LabelValoresStepper" TargetType="Label">
+
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="Red"/>
+
+            </Style>
+
+            <Style x:Key="ValoresCampos" TargetType="Label">
+
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+                <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+                <Setter Property="HorizontalTextAlignment" Value="End"/>
+                <Setter Property="TextColor" Value="Red"/>
+                <Setter Property="Margin" Value="0, 0, 5, 0"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="Medium"/>
+
             </Style>
             
         </ResourceDictionary>

@@ -33,7 +33,11 @@ namespace hotel.view
                 string email = User_email.Text;
                 string senha = user_pw.Text;
 
-                if (PropriedadesApp.list_usuario.Any(i => (i.Email == email && i.Senha == senha)))
+                string email_correto = "aluno@etec";
+                string senha_correta = "123";
+
+
+                if (email == email_correto && senha == senha_correta)
                 {
                     App.Current.Properties.Add("usuario_logado", email);
                     App.Current.MainPage = new Protegida();

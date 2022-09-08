@@ -8,8 +8,8 @@ namespace hotel.model
     {
         public string Descricao { get; set; }
 
-        public double ValorDiarioAdulto { get; set; }
+        public double ValorDiariaAdulto { get; set; }
 
-        public double ValorDiarioCrianca { get; set; }
+        public double ValorDiariaCrianca { get; set; }
     }
 }

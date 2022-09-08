@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Transactions;
 
 namespace hotel.model
 {
@@ -24,8 +25,8 @@ namespace hotel.model
 
         public double CalcularValorEstadia()
         {
-            double valor_adultos = (QuantidadeAdultos * Quartos.ValorDiarioAdulto) * QuantidadeDias;
-            double valor_criancas = (QuantidadeCriancas * CategoriaQuarto.ValorDiariaCrianca) * QuantidadeDias;
+            double valor_adultos = (QuantidadeAdultos * Quarto.ValorDiariaAdulto) * QuantidadeDias;
+            double valor_criancas = (QuantidadeCriancas * Quarto.ValorDiariaCrianca) * QuantidadeDias;
             double valor_hospedagem = valor_adultos + valor_criancas;
             return valor_hospedagem;
         }

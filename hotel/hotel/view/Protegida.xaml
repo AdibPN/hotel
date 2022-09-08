@@ -1,21 +1,96 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="hotel.view.Protegida"
-             Padding="10">
-    <ContentPage.Background>
-        <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
-            <GradientStop Color="Blue" Offset="0.3"/>
-            <GradientStop Color="Purple" Offset="1.1"/>
-        </LinearGradientBrush>
-                             
-    </ContentPage.Background>
-
-
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             Title="Estadia"
+             x:Class="hotel.view.Protegida">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="FUNCIONANDOOOO"/>
-            <Label Text="" TextColor="White" x:Name="lbl_boasvindas"/>
-        </StackLayout>
+        <Grid x:Name="G1" RowSpacing="1" ColumnSpacing="1" Padding="10">
+
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+
+            </Grid.RowDefinitions>
+
+            <Label Grid.Row="0" Grid.Column="4"
+                   Text="Calculo Estadia"
+                   FontSize="Title"
+                   HorizontalTextAlignment="Center"
+                   VerticalOptions="CenterAndExpand"/>
+
+            <Label Grid.Row="3" Grid.Column="0"
+                   Text="ADULTOS:"
+                   Style="{StaticResource LabelsCAmpos}" />
+            <Label x:Name="quantidade_adultos" Grid.Row="3" Grid.Column="1"
+                   BindingContext="{x:Reference stepperAdulto}"
+                   Text="{Binding Value}"
+                   Style="{StaticResource LabelValoresStepper}"/>
+            <Stepper x:Name="stepperAdulto" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"
+                     Minimum="0"
+                     Maximum="10"
+                     Increment="1"/>
+            
+            <Label Grid.Row="4" Grid.Column="0"
+                   Text="CRIANÇAS:"
+                   Style="{StaticResource LabelsCAmpos}" />
+            <Label x:Name="quantidade_crianca" Grid.Row="4" Grid.Column="1"
+                   BindingContext="{x:Reference stepperCrianca}"
+                   Text="{Binding Value}"
+                   Style="{StaticResource LabelValoresStepper}"/>
+            <Stepper x:Name="stepperCrianca" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2"
+                     Minimum="0"
+                     Maximum="10"
+                     Increment="1"/>
+
+            <Picker x:Name="pck_quarto" Grid.Row="5" Grid.ColumnSpan="4"
+                    Title="Selecione o quarto que deseja"
+                    ItemDisplayBinding="{Binding Descricao}">
+            </Picker>
+
+            <Label Grid.Row="6" Grid.Column="0"
+                   Text="Check-in:"
+                   Style="{StaticResource LabelsCAmpos}"/>
+
+            <DatePicker x:Name="dtpck_data_checkin" Grid.Row="6" Grid.ColumnSpan="3"
+                       
+                        Format="dd/MM/yyyy"/>
+
+            <Label Grid.Row="7" Grid.Column="0"
+                   Text="Check-out:"
+                   Style="{StaticResource LabelsCAmpos}"/>
+
+            <DatePicker x:Name="dtpck_data_checkout" Grid.Row="7" Grid.ColumnSpan="3"
+                       
+                        Format="dd/MM/yyyy"/>
+
+
+            <Button Grid.Row="9" Grid.ColumnSpan="4"
+                    Text="Calcular minha estadia"
+                    Clicked="BtnCalcular_Clicked"/>
+
+
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
