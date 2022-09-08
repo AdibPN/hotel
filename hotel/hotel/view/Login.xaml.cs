@@ -40,7 +40,7 @@ namespace hotel.view
                 if (email == email_correto && senha == senha_correta)
                 {
                     App.Current.Properties.Add("usuario_logado", email);
-                    App.Current.MainPage = new Protegida();
+                    App.Current.MainPage = new NavigationPage(new Protegida());
                 }
                 else
                     throw new Exception("Dados incorretos, tente novamente.");

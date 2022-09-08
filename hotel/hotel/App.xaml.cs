@@ -68,10 +68,11 @@ namespace hotel
         {
             InitializeComponent();
             Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-BR");
+
             if (Properties.ContainsKey("usuario_logado"))
                 MainPage = new NavigationPage(new view.HospedagemCalculada());
             else
-                MainPage = new NavigationPage(new view.Login());
+                MainPage = new view.Login();
         }
 
         protected override void OnStart()
