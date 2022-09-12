@@ -1,27 +1,71 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             Title="{Binding Path=Quarto.Descricao}"
-             x:Class="hotel.view.HospedagemCalculada">
+             x:Class="hotel.view.HospedagemCalculada"
+             
+             BackgroundColor="DarkOliveGreen">
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-            <StackLayout Orientation="Vertical">
-                <Label Text="Total diaria"
-                       FontSize="Title"
-                       HorizontalTextAlignment="Center"
-                        VerticalOptions="CenterAndExpand" />
-            </StackLayout>
+        <StackLayout VerticalOptions="CenterAndExpand">
 
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Qtde Adulto:" Style="{StaticResource LabelsCAmpos}"/>
-            </StackLayout>
+            <Label Text="Detalhes da Estadia" Style="{StaticResource Titulo} " />
 
+            <Label Text="{Binding Path=Quarto.Descricao}"
+                   TextColor="White"
+                   TextTransform="Uppercase"
+                   FontAttributes="Bold"
+                   Margin="0, 15, 0, 10"/>
+
+            <Frame Margin="10">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Adultos: " />
+                        <Label Text="{Binding quantidade_adultos}" Style="{StaticResource Valores}" />
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Crianças: " />
+                        <Label Text="{Binding quantidade_criancas}" Style="{StaticResource Valores}" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <Frame Margin="10">
+                <Grid RowDefinitions="Auto, Auto"
+                      ColumnDefinitions="*, *, *">
+                    <Label Grid.Row="0" Grid.Column="0" Text="Check-In:" />
+                    <Label Grid.Row="0" Grid.Column="1" Text="Check-Out:" />
+                    <Label Grid.Row="0" Grid.Column="2" Text="Estadia:" />
+
+                    <Label Grid.Row="1" Grid.Column="0" 
+                           Text="{Binding DataCheckIn, StringFormat='{}{0:dd/MM/yyyy}'}"
+                           Style="{StaticResource Valores}" />
+
+                    <Label Grid.Row="1" Grid.Column="1" 
+                           Text="{Binding DataCheckOut, StringFormat='{}{0:dd/MM/yyyy}'}"
+                           Style="{StaticResource Valores}" />
+
+                    <Label Grid.Row="1" Grid.Column="2" 
+                           Text="{Binding Estadia}" 
+                           Style="{StaticResource Valores}" />
+                </Grid>
+            </Frame>
+
+            <Frame Margin="5">
+                <Label HorizontalOptions="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Valor da Hospedagem: " />
+                            <Span Text="{Binding ValorTotal, StringFormat='{}{0:c}'}"                                  
+                                  FontSize="Large"
+                                  TextColor="Violet"
+                                  FontAttributes="Bold"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </Frame>
+
+            <Button Text="Voltar" Clicked="Button_Clicked" />
 
 
         </StackLayout>
-       
     </ContentPage.Content>
 </ContentPage>
