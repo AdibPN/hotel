@@ -12,7 +12,7 @@
             <Grid.ColumnDefinitions>
 
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
 
@@ -25,7 +25,7 @@
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
-                <RowDefinition Height="70"/>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
@@ -34,42 +34,42 @@
 
             </Grid.RowDefinitions>
 
-            <Label Grid.Row="0" Grid.Column="4"
+            <Label Grid.Row="0" 
                    Text="Calculo Estadia"
                    FontSize="Title"
-                   HorizontalTextAlignment="Center"
+                   
                    VerticalOptions="CenterAndExpand"/>
 
-            <Label Grid.Row="3" Grid.Column="0"
-                   Text="ADULTOS:"
+            <Label Grid.Row="2" Grid.Column="0"
+                   Text="ADULTO:"
                    Style="{StaticResource LabelsCAmpos}" />
-            <Label x:Name="quantidade_adultos" Grid.Row="3" Grid.Column="1"
+            <Label x:Name="quantidade_adultos" Grid.Row="2" Grid.Column="1"
                    BindingContext="{x:Reference stepperAdulto}"
                    Text="{Binding Value}"
                    Style="{StaticResource LabelValoresStepper}"/>
-            <Stepper x:Name="stepperAdulto" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"
+            <Stepper x:Name="stepperAdulto" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2"
                      Minimum="0"
                      Maximum="10"
                      Increment="1"/>
             
-            <Label Grid.Row="4" Grid.Column="0"
-                   Text="CRIANÇAS:"
+            <Label Grid.Row="3" Grid.Column="0"
+                   Text="CRIANÇA:"
                    Style="{StaticResource LabelsCAmpos}" />
-            <Label x:Name="quantidade_crianca" Grid.Row="4" Grid.Column="1"
+            <Label x:Name="quantidade_crianca" Grid.Row="3" Grid.Column="1"
                    BindingContext="{x:Reference stepperCrianca}"
                    Text="{Binding Value}"
                    Style="{StaticResource LabelValoresStepper}"/>
-            <Stepper x:Name="stepperCrianca" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="2"
+            <Stepper x:Name="stepperCrianca" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2"
                      Minimum="0"
                      Maximum="10"
                      Increment="1"/>
 
-            <Picker x:Name="pck_quarto" Grid.Row="5" Grid.ColumnSpan="4"
+            <Picker x:Name="pck_quarto" Grid.Row="4" Grid.ColumnSpan="4"
                     Title="Selecione o quarto que deseja"
                     ItemDisplayBinding="{Binding Descricao}">
             </Picker>
 
-            <Label Grid.Row="6" Grid.Column="0"
+            <Label Grid.Row="5" Grid.Column="0"
                    Text="Check-in:"
                    Style="{StaticResource LabelsCAmpos}"/>
 
@@ -81,7 +81,7 @@
                    Text="Check-out:"
                    Style="{StaticResource LabelsCAmpos}"/>
 
-            <DatePicker x:Name="dtpck_data_checkout" Grid.Row="7" Grid.ColumnSpan="3"
+            <DatePicker x:Name="dtpck_data_checkout" Grid.Row="8" Grid.ColumnSpan="3"
                        
                         Format="dd/MM/yyyy"/>
 

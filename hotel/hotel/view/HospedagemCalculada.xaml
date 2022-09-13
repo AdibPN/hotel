@@ -3,27 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="hotel.view.HospedagemCalculada"
              
-             BackgroundColor="DarkOliveGreen">
-    <ContentPage.Content>
+             BackgroundColor="Blue">
+<ContentPage.Content>
         <StackLayout VerticalOptions="CenterAndExpand">
 
-            <Label Text="Detalhes da Estadia" Style="{StaticResource Titulo} " />
-
-            <Label Text="{Binding Path=Quarto.Descricao}"
+            <Label Text="Detalhes da Estadia" 
                    TextColor="White"
                    TextTransform="Uppercase"
                    FontAttributes="Bold"
-                   Margin="0, 15, 0, 10"/>
+                   Margin="115, 15, 0, 10"
+                   />
+
 
             <Frame Margin="10">
                 <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Adultos: " />
-                        <Label Text="{Binding quantidade_adultos}" Style="{StaticResource Valores}" />
+                        <Label Text="Adultos: " TextColor="Black" />
+                        <Label Text="{Binding QuantidadeAdultos}" TextColor="Red" />
                     </StackLayout>
                     <StackLayout Orientation="Horizontal">
-                        <Label Text="Crianças: " />
-                        <Label Text="{Binding quantidade_criancas}" Style="{StaticResource Valores}" />
+                        <Label Text="Crianças: " TextColor="Black"/>
+                        <Label Text="{Binding QuantidadeCriancas}" TextColor="Red"/>
                     </StackLayout>
                 </StackLayout>
             </Frame>
@@ -31,21 +31,19 @@
             <Frame Margin="10">
                 <Grid RowDefinitions="Auto, Auto"
                       ColumnDefinitions="*, *, *">
-                    <Label Grid.Row="0" Grid.Column="0" Text="Check-In:" />
-                    <Label Grid.Row="0" Grid.Column="1" Text="Check-Out:" />
-                    <Label Grid.Row="0" Grid.Column="2" Text="Estadia:" />
+                    <Label Grid.Row="0" Grid.Column="0" Text="Check-In:" TextColor="Black" />
+                    <Label Grid.Row="0" Grid.Column="1" Text="Check-Out:" TextColor="Black"/>
+                    <Label Grid.Row="0" Grid.Column="2" Text="{Binding Path=Quarto.Descricao}" TextColor="Red"/>
 
                     <Label Grid.Row="1" Grid.Column="0" 
-                           Text="{Binding DataCheckIn, StringFormat='{}{0:dd/MM/yyyy}'}"
-                           Style="{StaticResource Valores}" />
+                           Text="{Binding DataCheckIn, StringFormat='{}{0:dd/MM/yyyy}'} " TextColor="Red"
+                           />
 
                     <Label Grid.Row="1" Grid.Column="1" 
-                           Text="{Binding DataCheckOut, StringFormat='{}{0:dd/MM/yyyy}'}"
-                           Style="{StaticResource Valores}" />
+                           Text="{Binding DataCheckOut, StringFormat='{}{0:dd/MM/yyyy}'}" TextColor="Red"
+                           />
 
-                    <Label Grid.Row="1" Grid.Column="2" 
-                           Text="{Binding Estadia}" 
-                           Style="{StaticResource Valores}" />
+                    
                 </Grid>
             </Frame>
 
@@ -53,10 +51,10 @@
                 <Label HorizontalOptions="Center">
                     <Label.FormattedText>
                         <FormattedString>
-                            <Span Text="Valor da Hospedagem: " />
+                            <Span Text="Valor da Hospedagem: " TextColor="Black" />
                             <Span Text="{Binding ValorTotal, StringFormat='{}{0:c}'}"                                  
                                   FontSize="Large"
-                                  TextColor="Violet"
+                                  TextColor="Red"
                                   FontAttributes="Bold"/>
                         </FormattedString>
                     </Label.FormattedText>
